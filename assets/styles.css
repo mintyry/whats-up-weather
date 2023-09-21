@@ -3,16 +3,18 @@
 }
 
 * {
-    /* outline: 3px solid red; */
+    outline: 3px solid red;
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-    background-color: var(--dark);
+    background-image: linear-gradient(black, yellow);
+    background-repeat: no-repeat;
+    /* height: 100vh; */
 }
 
 nav {
-    background-image: linear-gradient(to right, var(--dark), #f63f97, #f8a642)
+    background-image: linear-gradient(to right, #000000, var(--dark), var(--dark), #f63f97, #f8a642)
 }
 
 .navbar-brand {
@@ -28,20 +30,32 @@ input[placeholder=Search]:focus {
     color: chartreuse;
 }
 
-.btn[type=submit]:hover {
-    background-color: transparent;
-    color: chartreuse;
-}
-
 input[placeholder=Search]::placeholder {
-    color: chartreuse;
+    color: white;
     opacity: 1;
     /* Firefox */
 }
 
 input[placeholder=Search]::-ms-input-placeholder {
     /* Edge 12 -18 */
+    color: white;
+}
+
+.btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
     color: chartreuse;
+}
+
+.btn[type=submit]:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: chartreuse;
+    box-shadow: 0 0 8px chartreuse;
+    border: none;
+}
+
+section {
+    height: 500px;
 }
 
 /* NOTE(S): cant edit text color of placeholder in search box; how to change color of search button and hover?
