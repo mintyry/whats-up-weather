@@ -22,5 +22,8 @@ nav {
 .inputry {
     background-color: transparent;
 }
+btn-outline-success {
+    background-color: transparent;
+}
 
 /* NOTE(S): cant edit text color of placeholder in search box; how to change color of search button and hover?
