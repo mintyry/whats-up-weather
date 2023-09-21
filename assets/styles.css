@@ -1,0 +1,26 @@
+:root {
+    --dark: #261d2f;
+}
+
+* {
+    /* outline: 3px solid red; */
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+}
+
+nav {
+    background-image:linear-gradient(to right, var(--dark), #f63f97, #f8a642)
+}
+
+.navbar-brand {
+    font-family: 'Alumni Sans', sans-serif;
+}
+
+.inputry {
+    background-color: transparent;
+}
+
+/* NOTE(S): cant edit text color of placeholder in search box; how to change color of search button and hover?
