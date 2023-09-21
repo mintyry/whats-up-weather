@@ -12,7 +12,7 @@ body {
 }
 
 nav {
-    background-image:linear-gradient(to right, var(--dark), #f63f97, #f8a642)
+    background-image: linear-gradient(to right, var(--dark), #f63f97, #f8a642)
 }
 
 .navbar-brand {
@@ -22,8 +22,26 @@ nav {
 .inputry {
     background-color: transparent;
 }
-btn-outline-success {
+
+input[placeholder=Search]:focus {
     background-color: transparent;
+    color: chartreuse;
+}
+
+.btn[type=submit]:hover {
+    background-color: transparent;
+    color: chartreuse;
+}
+
+input[placeholder=Search]::placeholder {
+    color: chartreuse;
+    opacity: 1;
+    /* Firefox */
+}
+
+input[placeholder=Search]::-ms-input-placeholder {
+    /* Edge 12 -18 */
+    color: chartreuse;
 }
 
 /* NOTE(S): cant edit text color of placeholder in search box; how to change color of search button and hover?
