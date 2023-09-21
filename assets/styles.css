@@ -62,4 +62,6 @@ input[placeholder=Search]::-ms-input-placeholder {
     --bs-bg-opacity: 0.1;
     background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
 }
+
+
 /* NOTE(S): cant edit text color of placeholder in search box; how to change color of search button and hover?
