@@ -14,3 +14,23 @@ THEN I am again presented with current and future conditions for that city */
 
 let APIkey = "7d62d24437d4b74a7a9fb254a29a521e";
 let city;
+
+function getApi() {
+    let requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=${city}&units=imperial`;
+
+    fetch(requestUrl)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+};
+
+
+let searchBtn = document.querySelector('#search');
+searchBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    let input = document.querySelector('input').value;
+    console.log(input);
+});
