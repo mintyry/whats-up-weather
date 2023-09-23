@@ -5,7 +5,7 @@
 }
 
 * {
-    /* outline: 3px solid red; */
+    outline: 3px solid red;
     font-family: 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -24,6 +24,7 @@ h1 {
     color: white;
     font-size: 4vh;
     height: 50%;
+    text-wrap:nowrap;
 }
 
 nav {
@@ -40,8 +41,10 @@ nav {
 }
 
 form {
-    height: 50%;
     display: flex;
+    height: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 /* .inputry {
     background-color: transparent;
@@ -85,12 +88,14 @@ input {
     border: none;
     cursor:crosshair;
     transition: all 0.3s ease-in-out;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 #history-ticker {
     display:flex;
+    flex-wrap:wrap;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
-    height: 7vh;
     border-radius: 10px;
     font-size: 2.8vh;
     margin: 1%;
@@ -112,6 +117,7 @@ main {
     margin-right:2%;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
+    text-align: center;
 }
 
 #forecast-container {
