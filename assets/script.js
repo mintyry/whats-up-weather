@@ -12,4 +12,5 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
     //click history buttons that populate will show main weather and cards
 
-let APIkey
+let APIkey = "7d62d24437d4b74a7a9fb254a29a521e";
+let city;
