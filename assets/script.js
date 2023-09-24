@@ -78,6 +78,9 @@ let searchBtn = document.querySelector('#search');
 
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
+    let mainWeatherCard = document.querySelector('#main-weather');
+    mainWeatherCard.setAttribute('style', 'display:flex');
+
     let input = document.querySelector('input').value;
     // console.log(input);
     getApi(input);
