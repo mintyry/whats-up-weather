@@ -138,6 +138,7 @@ main {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
+    padding: 12px;
 }
 
 #city {
@@ -161,10 +162,12 @@ main {
 
 #humid {
     flex-basis: 100%;
+    font-size: smaller;
 }
 
 #wind {
     flex-basis: 100%;
+    font-size: smaller;
 }
 
 #forecast-container {
