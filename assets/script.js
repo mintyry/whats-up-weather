@@ -96,6 +96,22 @@ function getForecast(lat, lon) {
         })
 };
 
+
+function createHistoryBtn (){
+
+    let input = document.querySelector('input').value;
+    let cityBtn = document.createElement('button');
+    cityBtn.setAttribute('class', 'btn fssm');
+    cityBtn.textContent = input;
+
+    let historyBar = document.querySelector('#history-ticker');
+    historyBar.append(cityBtn);
+
+    cityBtn.onclick = function () {
+        getApi(input);
+    };
+};
+
 let searchBtn = document.querySelector('#search');
 
 searchBtn.addEventListener('click', function (event) {
@@ -112,6 +128,8 @@ searchBtn.addEventListener('click', function (event) {
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
     cityArray.push(input);
     localStorage.setItem('city', JSON.stringify(cityArray));
+
+    createHistoryBtn();
 
 
 });
