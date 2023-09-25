@@ -12,11 +12,7 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
 //click history buttons that populate will show main weather and cards
 
-let forecastContainer = document.querySelector('#forecast-container');
-let forecastOneDate;
-let forecastOneTemp;
-let forecastOneHumid;
-let forecastOneWind;
+
 
 
 function getApi(city) {
@@ -74,14 +70,19 @@ function getForecast(lat, lon) {
         })
         .then(function (data) {
             console.log(data);
+            let forecastContainer = document.querySelector('#forecast-container');
+            forecastOneDate;
+            let forecastOneTemp;
+            let forecastOneHumid;
+            let forecastOneWind;
             for (let i = 0; i < 5; i++) {
                 // let forecastContainer= document.querySelector('#forecast-container');
-                for (let i = 0; i < data.list.length; i = i + 7) {
-                    forecastOneDate = dayjs(data.list[0].dt_txt).format('M/D');
-                    forecastOneTemp = data.list[0].main.temp;
-                    forecastOneHumid = data.list[0].main.humidity;
-                    forecastOneWind = data.list[0].wind.speed;
-                }
+                // for (let i = 0; i < data.list.length; i = i + 7) {
+                forecastOneDate = dayjs(data.list[i * 8].dt_txt).format('M/D');
+                forecastOneTemp = data.list[i * 8].main.temp;
+                forecastOneHumid = data.list[i * 8].main.humidity;
+                forecastOneWind = data.list[i * 8].wind.speed;
+                // }
 
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '°F';
