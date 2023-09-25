@@ -130,8 +130,7 @@ searchBtn.addEventListener('click', function (event) {
     localStorage.setItem('city', JSON.stringify(cityArray));
 
     createHistoryBtn();
-
-
 });
 
+// TODO: buttons wont save on page, duplicates remain
 
