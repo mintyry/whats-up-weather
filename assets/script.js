@@ -45,8 +45,14 @@ function getApi(city) {
             let currentDay = dayjs();
             let now = currentDay.format('M/D/YY');
 
+            let img = document.createElement('img');
+            img.setAttribute('src', `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
+            
+
+
             city.textContent = data.name;
             day.textContent = now;
+            day.appendChild = (img);
             temp.textContent = Math.round(data.main.temp) + '°F';
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
@@ -71,7 +77,7 @@ function getForecast(lat, lon) {
         .then(function (data) {
             console.log(data);
             let forecastContainer = document.querySelector('#forecast-container');
-            forecastOneDate;
+            let forecastOneDate;
             let forecastOneTemp;
             let forecastOneHumid;
             let forecastOneWind;
@@ -98,9 +104,9 @@ let searchBtn = document.querySelector('#search');
 
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
-    let mainWeatherCard = document.querySelector('#main-weather');
 
-    // mainWeatherCard.setAttribute('style', 'display:flex');
+    let mainSection = document.querySelector('main');
+    mainSection.setAttribute('style', 'display:flex');
     //^bring back when done
 
     let input = document.querySelector('input').value;
