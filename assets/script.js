@@ -112,6 +112,8 @@ function createHistoryBtn (){
     cityBtn.onclick = function () {
         getApi(input);
     };
+
+   
 };
 
 function loadHistoryButtons() {
@@ -127,6 +129,8 @@ function loadHistoryButtons() {
         getApi(city);
       };
     });
+
+     //maybe rewrite with for loop to access cityArray's indexes
   }
 
 let searchBtn = document.querySelector('#search');
