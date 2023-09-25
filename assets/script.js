@@ -100,8 +100,11 @@ function getForecast(lat, lon) {
 
 
 function createHistoryBtn (){
-
+    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
     let input = document.querySelector('input').value;
+
+    if (!cityArray.includes(input)) {
+        for (let i = 0; i < 5; i++) {
     let cityBtn = document.createElement('button');
     cityBtn.setAttribute('class', 'btn fssm');
     cityBtn.textContent = input;
@@ -112,23 +115,42 @@ function createHistoryBtn (){
     cityBtn.onclick = function () {
         getApi(input);
     };
+}
+}
 
    
 };
 
 function loadHistoryButtons() {
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-    cityArray.forEach(function(city) {
-      let cityBtn = document.createElement('button');
-      cityBtn.setAttribute('class', 'btn fssm');
-      cityBtn.textContent = city;
-      let historyBar = document.querySelector('#history-ticker');
-      historyBar.append(cityBtn);
+
+    for (let i = 0; i < 5; i++) {
+        let historyBar = document.querySelector('#history-ticker');
+
+
+        let cityBtn = document.createElement('button');
+        cityBtn.setAttribute('class', 'btn fssm');
+        cityBtn.textContent = cityArray[i];
+      
+        historyBar.append(cityBtn);
+
+        cityBtn.onclick = function() {
+            getApi(city);
+          };
+    }
+
+
+    // cityArray.forEach(function(city) {
+    //   let cityBtn = document.createElement('button');
+    //   cityBtn.setAttribute('class', 'btn fssm');
+    //   cityBtn.textContent = city;
+    //   let historyBar = document.querySelector('#history-ticker');
+    //   historyBar.append(cityBtn);
   
-      cityBtn.onclick = function() {
-        getApi(city);
-      };
-    });
+    //   cityBtn.onclick = function() {
+    //     getApi(city);
+    //   };
+    // });
 
      //maybe rewrite with for loop to access cityArray's indexes
   }
@@ -151,6 +173,7 @@ searchBtn.addEventListener('click', function (event) {
     localStorage.setItem('city', JSON.stringify(cityArray));
 
     createHistoryBtn();
+    // loadHistoryButtons();
 });
 
 // TODO: buttons wont save on page, duplicates remain
