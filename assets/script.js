@@ -12,9 +12,6 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
 //click history buttons that populate will show main weather and cards
 
-
-
-
 function getApi(city) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
     let requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=${city}&units=imperial`;
@@ -48,8 +45,6 @@ function getApi(city) {
             let img = document.createElement('img');
             img.setAttribute('src', `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
             
-
-
             city.textContent = data.name;
             day.textContent = now;
             day.appendChild(img);
@@ -63,6 +58,7 @@ function getApi(city) {
 function getForecast(lat, lon) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
     let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+
     fetch(requestUrl)
         .then(function (response) {
             console.log(response);
@@ -72,7 +68,6 @@ function getForecast(lat, lon) {
                 return;
             }
             return response.json();
-
         })
         .then(function (data) {
             console.log(data);
@@ -81,12 +76,8 @@ function getForecast(lat, lon) {
             let forecastOneTemp;
             let forecastOneHumid;
             let forecastOneWind;
-           
 
             for (let i = 0; i < 5; i++) {
-                // console.log((i + 1)+ 'hi')
-                // let forecastCardTest = document.querySelector('#card-' + (i + 1))
-                // console.log(forecastCardTest);
 
                 forecastOneDate = dayjs(data.list[i * 8].dt_txt).format('M/D');
                 forecastOneTemp = data.list[i * 8].main.temp;
@@ -96,21 +87,12 @@ function getForecast(lat, lon) {
                 let forecastIcon = document.createElement('img');
                 forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png`);
 
-                
-
-                // console.log(forecastIcon);
-                // console.log(iconSection);
-                // console.log(i);
-
-              
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
                 forecastContainer.children[i].children[1].children[0].appendChild(forecastIcon);
                 forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
                 forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
-
             }
-
         })
 };
 
