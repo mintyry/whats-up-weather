@@ -12,6 +12,8 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
 //click history buttons that populate will show main weather and cards
 
+loadHistoryButtons();
+
 function getApi(city) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
     let requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=${city}&units=imperial`;
@@ -112,6 +114,21 @@ function createHistoryBtn (){
     };
 };
 
+function loadHistoryButtons() {
+    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+    cityArray.forEach(function(city) {
+      let cityBtn = document.createElement('button');
+      cityBtn.setAttribute('class', 'btn fssm');
+      cityBtn.textContent = city;
+      let historyBar = document.querySelector('#history-ticker');
+      historyBar.append(cityBtn);
+  
+      cityBtn.onclick = function() {
+        getApi(city);
+      };
+    });
+  }
+
 let searchBtn = document.querySelector('#search');
 
 searchBtn.addEventListener('click', function (event) {
@@ -126,7 +143,7 @@ searchBtn.addEventListener('click', function (event) {
     getApi(input);
 
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-    cityArray.push(input);
+    cityArray.unshift(input);
     localStorage.setItem('city', JSON.stringify(cityArray));
 
     createHistoryBtn();
