@@ -81,17 +81,31 @@ function getForecast(lat, lon) {
             let forecastOneTemp;
             let forecastOneHumid;
             let forecastOneWind;
-            let forecastIcon = document.querySelector('img');
+           
 
             for (let i = 0; i < 5; i++) {
+                // console.log((i + 1)+ 'hi')
+                // let forecastCardTest = document.querySelector('#card-' + (i + 1))
+                // console.log(forecastCardTest);
+
                 forecastOneDate = dayjs(data.list[i * 8].dt_txt).format('M/D');
                 forecastOneTemp = data.list[i * 8].main.temp;
                 forecastOneHumid = data.list[i * 8].main.humidity;
                 forecastOneWind = data.list[i * 8].wind.speed;
 
+                let forecastIcon = document.createElement('img');
+                forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png`);
+
+                
+
+                // console.log(forecastIcon);
+                // console.log(iconSection);
+                // console.log(i);
+
+              
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
-                forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png`);
+                forecastContainer.children[i].children[1].children[0].appendChild(forecastIcon);
                 forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
                 forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
 

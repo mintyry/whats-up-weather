@@ -149,6 +149,8 @@ main {
 
 #date {
     flex-basis: 100%;
+    padding-left: 17%;
+    white-space: nowrap;
 }
 
 #temp {
