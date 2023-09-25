@@ -46,7 +46,7 @@ function getApi(city) {
 
             city.textContent = data.name;
             day.textContent = now;
-            temp.textContent = Math.round(data.main.temp) + '°';
+            temp.textContent = Math.round(data.main.temp) + '°F';
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
 
@@ -56,7 +56,6 @@ function getApi(city) {
 function getForecast(lat, lon) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
     let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
-
     fetch(requestUrl)
         .then(function (response) {
             console.log(response);
@@ -71,6 +70,17 @@ function getForecast(lat, lon) {
         .then(function (data) {
             console.log(data);
 
+            let forecastOneCard = document.querySelector('#card-1');
+            let forecastOneDate = dayjs(data.list[0].dt_txt).format('M/D');
+            let forecastOneTemp = data.list[0].main.temp;
+            let forecastOneHumid = data.list[0].main.humidity;
+            let forecastOneWind = data.list[0].wind.speed;
+            forecastOneCard.children[0].children[0].textContent = forecastOneDate;
+            forecastOneCard.children[0].children[1].textContent = Math.round(forecastOneTemp) + '°F';
+            forecastOneCard.children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
+            forecastOneCard.children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
+
+
         })
 };
 
@@ -79,7 +89,9 @@ let searchBtn = document.querySelector('#search');
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
     let mainWeatherCard = document.querySelector('#main-weather');
-    mainWeatherCard.setAttribute('style', 'display:flex');
+
+    // mainWeatherCard.setAttribute('style', 'display:flex');
+    //^bring back when done
 
     let input = document.querySelector('input').value;
     // console.log(input);
