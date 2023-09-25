@@ -107,10 +107,10 @@ function createHistoryBtn (){
         for (let i = 0; i < 5; i++) {
     let cityBtn = document.createElement('button');
     cityBtn.setAttribute('class', 'btn fssm');
-    cityBtn.textContent = input;
+    cityBtn.textContent = cityArray[i];
 
     let historyBar = document.querySelector('#history-ticker');
-    historyBar.append(cityBtn);
+    historyBar.prepend(cityBtn);
 
     cityBtn.onclick = function () {
         getApi(input);
