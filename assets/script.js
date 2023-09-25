@@ -12,6 +12,11 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
 //click history buttons that populate will show main weather and cards
 
+let forecastContainer = document.querySelector('#forecast-container');
+let forecastOneDate;
+let forecastOneTemp;
+let forecastOneHumid;
+let forecastOneWind;
 
 
 function getApi(city) {
@@ -69,17 +74,21 @@ function getForecast(lat, lon) {
         })
         .then(function (data) {
             console.log(data);
+            for (let i = 0; i < 5; i++) {
+                // let forecastContainer= document.querySelector('#forecast-container');
+                for (let i = 0; i < data.list.length; i = i + 7) {
+                    forecastOneDate = dayjs(data.list[0].dt_txt).format('M/D');
+                    forecastOneTemp = data.list[0].main.temp;
+                    forecastOneHumid = data.list[0].main.humidity;
+                    forecastOneWind = data.list[0].wind.speed;
+                }
 
-            let forecastOneCard = document.querySelector('#card-1');
-            let forecastOneDate = dayjs(data.list[0].dt_txt).format('M/D');
-            let forecastOneTemp = data.list[0].main.temp;
-            let forecastOneHumid = data.list[0].main.humidity;
-            let forecastOneWind = data.list[0].wind.speed;
-            forecastOneCard.children[0].children[0].textContent = forecastOneDate;
-            forecastOneCard.children[0].children[1].textContent = Math.round(forecastOneTemp) + '°F';
-            forecastOneCard.children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
-            forecastOneCard.children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
+                forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
+                forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '°F';
+                forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
+                forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
 
+            }
 
         })
 };
