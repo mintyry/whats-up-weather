@@ -108,20 +108,12 @@ searchBtn.addEventListener('click', function (event) {
     let input = document.querySelector('input').value;
     // console.log(input);
     getApi(input);
+
+    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+    cityArray.push(input);
+    localStorage.setItem('city', JSON.stringify(cityArray));
+
+
 });
 
-
-
-
-/*   let currentWeather =(`<p id="city">${data.name}</p>
-                <p id="date">x/xx/xx</p>
-                <p id="temp">${data.main.temp}°</p>
-                <div id="details-container">
-                    <p id="humid">${data.main.humidity}</p>
-                    <p id="wind">${data.wind.speed}</p>
-                </div>`);
-            let mainWeather = document.querySelector('#main-weather');
-            mainWeather.innerHTML= currentWeather; */
-
-// for loop item = item + 7
 
