@@ -52,8 +52,8 @@ function getApi(city) {
 
             city.textContent = data.name;
             day.textContent = now;
-            day.appendChild = (img);
-            temp.textContent = Math.round(data.main.temp) + '°F';
+            day.appendChild(img);
+            temp.textContent = Math.round(data.main.temp) + '℉';
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
 
@@ -81,17 +81,17 @@ function getForecast(lat, lon) {
             let forecastOneTemp;
             let forecastOneHumid;
             let forecastOneWind;
+            let forecastIcon = document.querySelector('img');
+
             for (let i = 0; i < 5; i++) {
-                // let forecastContainer= document.querySelector('#forecast-container');
-                // for (let i = 0; i < data.list.length; i = i + 7) {
                 forecastOneDate = dayjs(data.list[i * 8].dt_txt).format('M/D');
                 forecastOneTemp = data.list[i * 8].main.temp;
                 forecastOneHumid = data.list[i * 8].main.humidity;
                 forecastOneWind = data.list[i * 8].wind.speed;
-                // }
 
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
-                forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '°F';
+                forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
+                forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png`);
                 forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
                 forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
 
