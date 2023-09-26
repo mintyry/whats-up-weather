@@ -214,14 +214,34 @@ searchBtn.addEventListener('click', function (event) {
 
     let input = document.querySelector('input').value;
 
-    //trying to cap
-//     input = input.toLowerCase();
-//     console.log(input);
-//     //cap first letters
-//    input = input.split(" ");
+    input = input.toLowerCase();
+    console.log(input);
 
-//     for (let i = 0; i < input.length; i++) {
-//     let firstLetter = input[i][0].toUpperCase();
+   input = input.split(' ');
+   console.log(input);
+
+   for (let i = 0; i < input.length; i++) {
+    input[i] = input [i][0].toUpperCase() + input[i].substr(1);
+   }
+
+   input = input.join(' ');
+
+   console.log(input);
+
+
+
+
+
+   //error
+    // input = input.toUpperCase();
+    // console.log(input);
+
+    // for (let i = 0; i < input.length; i++) {
+    // input = input[i][0].toUpperCase();
+
+
+    // }
+    // console.log(input);
 //     let restOfName = input[i].slice(1);
 //     input[i] = firstLetter + restOfName;
 
