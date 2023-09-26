@@ -12,7 +12,12 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 THEN I am again presented with current and future conditions for that city */
 //click history buttons that populate will show main weather and cards
 
+let historyBar = document.querySelector('#history-ticker');
+let mainSection = document.querySelector('main');
+
 loadHistoryButtons();
+
+
 
 function getApi(city) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
@@ -57,6 +62,13 @@ function getApi(city) {
         })
 };
 
+historyBar.onclick = function (event) {
+    console.log(event.target);
+        getApi(event.target.textContent);
+
+        mainSection.setAttribute('style', 'display:flex');    
+};
+
 function getForecast(lat, lon) {
     let apiKey = "7d62d24437d4b74a7a9fb254a29a521e";
     let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
@@ -88,6 +100,7 @@ function getForecast(lat, lon) {
 
                 let forecastIcon = document.createElement('img');
                 forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png`);
+                
 
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
@@ -103,29 +116,24 @@ function createHistoryBtn (){
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
     let input = document.querySelector('input').value;
 
-    if (!cityArray.includes(input)) {
-        for (let i = 0; i < 5; i++) {
+    // if (!cityArray.includes(input)) {
+        // for (let i = 0; i < 5; i++) {
     let cityBtn = document.createElement('button');
     cityBtn.setAttribute('class', 'btn fssm');
-    cityBtn.textContent = cityArray[i];
-
-    let historyBar = document.querySelector('#history-ticker');
-    historyBar.prepend(cityBtn);
-
-    cityBtn.onclick = function () {
-        getApi(input);
-    };
-}
-}
+    cityBtn.textContent = input;
 
    
+    historyBar.prepend(cityBtn);
+    historyBar.removeChild(historyBar.lastChild);
+     
+    // }
 };
 
 function loadHistoryButtons() {
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
 
     for (let i = 0; i < 5; i++) {
-        let historyBar = document.querySelector('#history-ticker');
+       
 
 
         let cityBtn = document.createElement('button');
@@ -134,9 +142,6 @@ function loadHistoryButtons() {
       
         historyBar.append(cityBtn);
 
-        cityBtn.onclick = function() {
-            getApi(city);
-          };
     }
 
 
@@ -160,7 +165,7 @@ let searchBtn = document.querySelector('#search');
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-    let mainSection = document.querySelector('main');
+   
     mainSection.setAttribute('style', 'display:flex');
     //^bring back when done
 
