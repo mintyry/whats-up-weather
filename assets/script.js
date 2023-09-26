@@ -153,14 +153,29 @@ function getForecast(lat, lon) {
 
 function loadHistoryButtons() {
     historyBar.innerHTML = "";
-    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-  
-    // if (cityBtn.textContent = undefined) {
-    //     cityBtn.setAttribute('style', 'display:none');
+
+        // TRYING TO UPPERCASE FIRST LETTERS
+    // let cityNames = cityArray.split(" ");
+
+    // for (let i = 0; i < cityNames.length; i++) {
+       
+    //     let firstLetter = cityArray[i][0].toUpperCase()
+    //     let restOfName = cityArray[i].slice(1);
+    //     cityArray[i] = firstLetter + restOfName;
+
+    //     console.log(cityArray[i]);
+    //     console.log(restOfName);
+    //     console.log(firstLetter);
+    //     console.log(cityNames);
     // }
+
+    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+
+   
 
     for (let i = 0; i < cityArray.length; i++) {
         let cityBtn = document.createElement('button');
+        
         
         cityBtn.setAttribute('class', 'btn fssm');
         cityBtn.textContent = cityArray[i];
@@ -198,8 +213,23 @@ searchBtn.addEventListener('click', function (event) {
     //^bring back when done
 
     let input = document.querySelector('input').value;
-    input = input.toLowerCase();
-    console.log(input);
+
+    //trying to cap
+//     input = input.toLowerCase();
+//     console.log(input);
+//     //cap first letters
+//    input = input.split(" ");
+
+//     for (let i = 0; i < input.length; i++) {
+//     let firstLetter = input[i][0].toUpperCase();
+//     let restOfName = input[i].slice(1);
+//     input[i] = firstLetter + restOfName;
+
+//    input.join(" ");
+//     }
+
+   
+
     getApi(input);
 
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
@@ -218,5 +248,5 @@ searchBtn.addEventListener('click', function (event) {
     loadHistoryButtons();
 });
 
-// TODO: capitalize first letter of each word in history buttons
+// TODO: capitalize first letter of each word in history buttons; why are error entries still making buttons?
 
