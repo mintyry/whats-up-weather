@@ -98,13 +98,20 @@ function getForecast(lat, lon) {
                 forecastOneHumid = data.list[i * 8].main.humidity;
                 forecastOneWind = data.list[i * 8].wind.speed;
 
+                let iconEl = forecastContainer.children[i].children[1].children[0];
+
+                if (iconEl.firstChild) {
+                    iconEl.removeChild(iconEl.firstChild)
+                }
+    
+
                 let forecastIcon = document.createElement('img');
                 forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png`);
                 
 
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
-                forecastContainer.children[i].children[1].children[0].appendChild(forecastIcon);
+                iconEl.appendChild(forecastIcon);
                 forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
                 forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
             }
