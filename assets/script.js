@@ -122,14 +122,18 @@ function getForecast(lat, lon) {
 function createHistoryBtn (){
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
     let input = document.querySelector('input').value;
-
+    
     // if (!cityArray.includes(input)) {
         // for (let i = 0; i < 5; i++) {
     let cityBtn = document.createElement('button');
     cityBtn.setAttribute('class', 'btn fssm');
     cityBtn.textContent = input;
+    cityBtn.setAttribute('id', input);
 
-   
+    if (cityArray.includes(input)) {
+        let oldBtn = document.getElementById(input);
+        oldBtn.historyBar.removeChild(oldBtn);
+    }
     historyBar.prepend(cityBtn);
     historyBar.removeChild(historyBar.lastChild);
      
