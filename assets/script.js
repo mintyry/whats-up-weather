@@ -122,6 +122,8 @@ function getForecast(lat, lon) {
 function createHistoryBtn (){
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
     let input = document.querySelector('input').value;
+
+    //lowercase all entries, then capitalize first letter when pulling
     
     // if (!cityArray.includes(input)) {
         // for (let i = 0; i < 5; i++) {
@@ -130,15 +132,19 @@ function createHistoryBtn (){
     cityBtn.textContent = input;
     // cityBtn.setAttribute('id', input);
 
-    let removeItem = input;
-    let index = cityArray.indexOf(removeItem);
+    // let removeItem = input;
+    // let index = cityArray.indexOf(removeItem);
+    console.log(input);
+    if (!cityArray.includes(input)) {
+       cityArray.push(input);
+       
 
-    if (cityArray.includes(input)) {
-       //delete old city from array
-       console.log(cityArray);
-        cityArray.splice(index, 1);
-        console.log(cityArray);
+    //    console.log(cityArray);
+    //     cityArray.splice(index, 1);
+    //     console.log(cityArray);
     }
+
+    console.log(cityArray);
     historyBar.prepend(cityBtn);
     historyBar.removeChild(historyBar.lastChild);
      
@@ -146,6 +152,7 @@ function createHistoryBtn (){
 };
 
 function loadHistoryButtons() {
+    historyBar.innerHTML = "";
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
 
     for (let i = 0; i < 5; i++) {
@@ -190,11 +197,19 @@ searchBtn.addEventListener('click', function (event) {
     getApi(input);
 
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+  
+
+    if (cityArray.includes(input)) {
+        let index = cityArray.indexOf(input);
+        console.log(index);
+        cityArray.splice(index, 1);
+    }
+
     cityArray.unshift(input);
     localStorage.setItem('city', JSON.stringify(cityArray));
 
-    createHistoryBtn();
-    // loadHistoryButtons();
+    // createHistoryBtn();
+    loadHistoryButtons();
 });
 
 // TODO: buttons wont save on page, duplicates remain
