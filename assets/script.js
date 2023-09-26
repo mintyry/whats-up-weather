@@ -198,7 +198,8 @@ searchBtn.addEventListener('click', function (event) {
     //^bring back when done
 
     let input = document.querySelector('input').value;
-    // console.log(input);
+    input = input.toLowerCase();
+    console.log(input);
     getApi(input);
 
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
