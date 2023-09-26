@@ -128,11 +128,16 @@ function createHistoryBtn (){
     let cityBtn = document.createElement('button');
     cityBtn.setAttribute('class', 'btn fssm');
     cityBtn.textContent = input;
-    cityBtn.setAttribute('id', input);
+    // cityBtn.setAttribute('id', input);
+
+    let removeItem = input;
+    let index = cityArray.indexOf(removeItem);
 
     if (cityArray.includes(input)) {
-        let oldBtn = document.getElementById(input);
-        oldBtn.historyBar.removeChild(oldBtn);
+       //delete old city from array
+       console.log(cityArray);
+        cityArray.splice(index, 1);
+        console.log(cityArray);
     }
     historyBar.prepend(cityBtn);
     historyBar.removeChild(historyBar.lastChild);
