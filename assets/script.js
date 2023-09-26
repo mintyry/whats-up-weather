@@ -51,7 +51,7 @@ function getApi(city) {
 
             let img = document.createElement('img');
             img.setAttribute('src', `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
-            
+
             city.textContent = data.name;
             day.textContent = now;
             day.appendChild(img);
@@ -59,14 +59,16 @@ function getApi(city) {
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
 
+            loadHistoryButtons();
+
         })
 };
 
 historyBar.onclick = function (event) {
     console.log(event.target);
-        getApi(event.target.textContent);
+    getApi(event.target.textContent);
 
-        mainSection.setAttribute('style', 'display:flex');    
+    mainSection.setAttribute('style', 'display:flex');
 };
 
 function getForecast(lat, lon) {
@@ -103,17 +105,17 @@ function getForecast(lat, lon) {
                 if (iconEl.firstChild) {
                     iconEl.removeChild(iconEl.firstChild)
                 }
-    
+
 
                 let forecastIcon = document.createElement('img');
                 forecastIcon.setAttribute('src', `https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png`);
-                
+
 
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
                 iconEl.appendChild(forecastIcon);
                 forecastContainer.children[i].children[1].children[1].textContent = `Humidity: ${forecastOneHumid}`;
-                forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${forecastOneWind} mph`;
+                forecastContainer.children[i].children[1].children[2].textContent = `Wind Speed: ${Math.round(forecastOneWind)} mph`;
             }
         })
 };
@@ -124,7 +126,7 @@ function getForecast(lat, lon) {
 //     let input = document.querySelector('input').value;
 
 //     //lowercase all entries, then capitalize first letter when pulling
-    
+
 //     // if (!cityArray.includes(input)) {
 //         // for (let i = 0; i < 5; i++) {
 //     let cityBtn = document.createElement('button');
@@ -137,7 +139,7 @@ function getForecast(lat, lon) {
 //     console.log(input);
 //     if (!cityArray.includes(input)) {
 //        cityArray.push(input);
-       
+
 
 //     //    console.log(cityArray);
 //     //     cityArray.splice(index, 1);
@@ -147,18 +149,18 @@ function getForecast(lat, lon) {
 //     console.log(cityArray);
 //     historyBar.prepend(cityBtn);
 //     historyBar.removeChild(historyBar.lastChild);
-     
+
 //     // }
 // };
 
 function loadHistoryButtons() {
     historyBar.innerHTML = "";
 
-        // TRYING TO UPPERCASE FIRST LETTERS
+    // TRYING TO UPPERCASE FIRST LETTERS
     // let cityNames = cityArray.split(" ");
 
     // for (let i = 0; i < cityNames.length; i++) {
-       
+
     //     let firstLetter = cityArray[i][0].toUpperCase()
     //     let restOfName = cityArray[i].slice(1);
     //     cityArray[i] = firstLetter + restOfName;
@@ -169,19 +171,20 @@ function loadHistoryButtons() {
     //     console.log(cityNames);
     // }
 
+
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
 
-   
+
 
     for (let i = 0; i < cityArray.length; i++) {
         let cityBtn = document.createElement('button');
-        
-        
+
+
         cityBtn.setAttribute('class', 'btn fssm');
         cityBtn.textContent = cityArray[i];
 
-       
-      
+
+
         historyBar.append(cityBtn);
 
 
@@ -194,21 +197,21 @@ function loadHistoryButtons() {
     //   cityBtn.textContent = city;
     //   let historyBar = document.querySelector('#history-ticker');
     //   historyBar.append(cityBtn);
-  
+
     //   cityBtn.onclick = function() {
     //     getApi(city);
     //   };
     // });
 
-     //maybe rewrite with for loop to access cityArray's indexes
-  }
+    //maybe rewrite with for loop to access cityArray's indexes
+}
 
 let searchBtn = document.querySelector('#search');
 
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-   
+
     mainSection.setAttribute('style', 'display:flex');
     //^bring back when done
 
@@ -217,43 +220,23 @@ searchBtn.addEventListener('click', function (event) {
     input = input.toLowerCase();
     console.log(input);
 
-   input = input.split(' ');
-   console.log(input);
+    input = input.split(' ');
+    console.log(input);
 
-   for (let i = 0; i < input.length; i++) {
-    input[i] = input [i][0].toUpperCase() + input[i].substr(1);
-   }
+    for (let i = 0; i < input.length; i++) {
+        input[i] = input[i][0].toUpperCase() + input[i].substr(1);
+    }
 
-   input = input.join(' ');
+    input = input.join(' ');
 
-   console.log(input);
-
-
-
-
-
-   //error
-    // input = input.toUpperCase();
-    // console.log(input);
-
-    // for (let i = 0; i < input.length; i++) {
-    // input = input[i][0].toUpperCase();
-
-
-    // }
-    // console.log(input);
-//     let restOfName = input[i].slice(1);
-//     input[i] = firstLetter + restOfName;
-
-//    input.join(" ");
-//     }
-
-   
+    console.log(input);
 
     getApi(input);
 
+    console.log('test');
+    
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-  
+
 
     if (cityArray.includes(input)) {
         let index = cityArray.indexOf(input);
@@ -265,7 +248,10 @@ searchBtn.addEventListener('click', function (event) {
     localStorage.setItem('city', JSON.stringify(cityArray));
 
     // createHistoryBtn();
-    loadHistoryButtons();
+    // loadHistoryButtons();
+
+    // input= document.querySelector('input').value;
+    // input.textContent = '';
 });
 
 // TODO: capitalize first letter of each word in history buttons; why are error entries still making buttons?

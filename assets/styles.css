@@ -16,7 +16,12 @@
 
 body {
     display: block;
-    background-color: var(--dark);
+    /* background-color: var(--dark); */
+    background-image: url("./images/wuwbg.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
 }
 
 header {
@@ -90,7 +95,7 @@ input {
 .btn {
     background-color: rgba(255, 255, 255, 0.2);
     border: none;
-    color: rgb(170, 167, 174);
+    color: rgb(255, 255, 255);
     /* height: 100%; */
     /* font-size: 3vw; */
     border-radius: 5px;
@@ -134,7 +139,8 @@ main {
     /* outline: 2px chartreuse solid; */
     flex-basis: 40%;
     margin-right: 2%;
-    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)  );
     border-radius: 8px;
     text-align: center;
     display:flex;
@@ -142,15 +148,22 @@ main {
     padding: 12px;
 }
 
+#top-details-container {
+    padding-left: 6%;
+}
+
 #city {
     flex-basis: 100%;
+    text-align: left;
     color: chartreuse;
 }
 
 #date {
     flex-basis: 100%;
-    padding-left: 19%;
+    /* padding-left: 20%; */
     white-space: nowrap;
+    color: #f8a642;
+    text-align: left;
 }
 
 #temp {
@@ -188,7 +201,7 @@ main {
 .forecast-card {
     /* outline: 2px white solid; */
     flex-basis: 100%;
-    background-color: rgba(87, 87, 87, 0.2);
+    background-color: rgba(75, 75, 75, 0.5);
     border-radius: 8px;
     display: flex;
     flex: wrap;
@@ -215,6 +228,7 @@ main {
 .date {
     flex-basis: 30%;
     text-align: center;
+    color: #f8a642;
 }
 .temp {
     flex-basis: 70%;
