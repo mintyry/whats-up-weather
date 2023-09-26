@@ -29,7 +29,7 @@ function getApi(city) {
             if (!response.ok) {
                 console.log('error');
                 alert('Please enter an actual city.')
-                return;
+                return false;
             }
             return response.json();
 
