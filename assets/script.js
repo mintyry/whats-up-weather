@@ -119,51 +119,56 @@ function getForecast(lat, lon) {
 };
 
 
-function createHistoryBtn (){
-    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-    let input = document.querySelector('input').value;
+// function createHistoryBtn (){
+//     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+//     let input = document.querySelector('input').value;
 
-    //lowercase all entries, then capitalize first letter when pulling
+//     //lowercase all entries, then capitalize first letter when pulling
     
-    // if (!cityArray.includes(input)) {
-        // for (let i = 0; i < 5; i++) {
-    let cityBtn = document.createElement('button');
-    cityBtn.setAttribute('class', 'btn fssm');
-    cityBtn.textContent = input;
-    // cityBtn.setAttribute('id', input);
+//     // if (!cityArray.includes(input)) {
+//         // for (let i = 0; i < 5; i++) {
+//     let cityBtn = document.createElement('button');
+//     cityBtn.setAttribute('class', 'btn fssm');
+//     cityBtn.textContent = input;
+//     // cityBtn.setAttribute('id', input);
 
-    // let removeItem = input;
-    // let index = cityArray.indexOf(removeItem);
-    console.log(input);
-    if (!cityArray.includes(input)) {
-       cityArray.push(input);
+//     // let removeItem = input;
+//     // let index = cityArray.indexOf(removeItem);
+//     console.log(input);
+//     if (!cityArray.includes(input)) {
+//        cityArray.push(input);
        
 
-    //    console.log(cityArray);
-    //     cityArray.splice(index, 1);
-    //     console.log(cityArray);
-    }
+//     //    console.log(cityArray);
+//     //     cityArray.splice(index, 1);
+//     //     console.log(cityArray);
+//     }
 
-    console.log(cityArray);
-    historyBar.prepend(cityBtn);
-    historyBar.removeChild(historyBar.lastChild);
+//     console.log(cityArray);
+//     historyBar.prepend(cityBtn);
+//     historyBar.removeChild(historyBar.lastChild);
      
-    // }
-};
+//     // }
+// };
 
 function loadHistoryButtons() {
     historyBar.innerHTML = "";
     let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+  
+    // if (cityBtn.textContent = undefined) {
+    //     cityBtn.setAttribute('style', 'display:none');
+    // }
 
-    for (let i = 0; i < 5; i++) {
-       
-
-
+    for (let i = 0; i < cityArray.length; i++) {
         let cityBtn = document.createElement('button');
+        
         cityBtn.setAttribute('class', 'btn fssm');
         cityBtn.textContent = cityArray[i];
+
+       
       
         historyBar.append(cityBtn);
+
 
     }
 
@@ -212,5 +217,5 @@ searchBtn.addEventListener('click', function (event) {
     loadHistoryButtons();
 });
 
-// TODO: buttons wont save on page, duplicates remain
+// TODO: capitalize first letter of each word in history buttons
 
