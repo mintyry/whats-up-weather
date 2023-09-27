@@ -26,7 +26,7 @@ When the user visits the What's Up Weather app for the first time, they will be 
 
 ![Page Load is clean with just input box and search button](./assets/images/load.png)
 
-When the user enters a city name, they will be able to view the city's current temperature, humidity level, and wind speed, along with a nifty little icon that resembles current weather conditions. The next five-day forecase also display with the same information.
+When the user enters a city name, they will be able to view the city's current temperature, humidity level, and wind speed, along with a nifty little icon that resembles current weather conditions. The next five-day forecast also displays the same information.
 
 Upon conducting the search, the user will be presented with a newly generated history button that access their most recent search. So should they come back and want easy access to a prior search of theirs, one simple click will do the trick and reveal to them the current weather conditions and next five-day forecast of the corresponding city.
 
