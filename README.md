@@ -44,6 +44,7 @@ Once the user is done conducting their business and leaves the page, when they r
 
 ![Your last five searches will be here waiting for you](./assets/images/wait.png)
 
+(PS: Wanna know a fun fact? Did you know 'lol' is a city? Go ahead. Enter it in the app! Find out how cold or hot or not it is.)
 
 ## Credits
 
@@ -55,4 +56,4 @@ Meg M. (TA)/ edX.
 API endpoints
 
 ## Deployed Link
-Please enjoy the [What's Up Weather](url) app!
+Please enjoy the [What's Up Weather](https://mintyry.github.io/whats-up-weather/) app!
