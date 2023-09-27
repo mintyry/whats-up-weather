@@ -1,47 +1,36 @@
-/*NOTE: Use display: none; use js/display:flex to add them in*/
-
+/* created variable for dark purple to be reused  */
 :root {
     --dark: #261d2f;
-
-    /* background-repeat: no-repeat; */
 }
-
+/* universal selector applies these properties to every element unless specified in specific element */
 * {
-    /* outline: 3px solid red; */
     font-family: 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
     font-size: 25px;
 }
-
+/* displays background image, sets body element to block to display the elements within it how they are */
 body {
     display: block;
-    /* background-color: var(--dark); */
     background-image: url("./images/wuwbg.png");
-    background-size:100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
 }
-
+/* following code supplies particular properties to specific elements, such as colors, flex positioning, and sizing */
 header {
     background-image: linear-gradient(to right, var(--dark), var(--dark), #f63f97, #f8a642);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    /* height: 10vh; */
-    /* padding: 0 10%; */
     margin-top: 0%;
-    /* width: 100%; */
     padding: 1% 0;
-    /* font-size: 4.8vw; */
 }
 
 .wuw {
     font-family: 'Alumni Sans', sans-serif;
     color: white;
-    /* text-wrap: nowrap; */
     font-size: 35px;
 }
 
@@ -50,24 +39,19 @@ form {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* flex-basis: 30%; */
 }
 
-/* .inputry {
-    background-color: transparent;
-} */
 input {
     background-color: transparent;
     border: 1px white solid;
-    /* font-size: 2.4vw; */
     color: chartreuse;
-    /* font-size: 3vw; */
     border-radius: 5px;
     padding: 3px;
     text-align: center;
 }
+
 #search {
-      color: chartreuse;
+    color: chartreuse;
 }
 
 ::placeholder {
@@ -77,10 +61,11 @@ input {
 }
 
 ::-ms-input-placeholder {
-    /* Edge 12-18 */
     color: white;
+    /* Edge 12-18 */
 }
 
+/* setting media query to adjust add responsive sizing to input box and search button */
 @media (max-width: 282px) {
     input {
         width: 100%;
@@ -88,22 +73,21 @@ input {
 
     #search {
         width: 100%;
-        
     }
 }
 
+/* more styling of colors, spacing, and sizing to other elements */
 .btn {
     background-color: rgba(255, 255, 255, 0.2);
     border: none;
     color: rgb(255, 255, 255);
-    /* height: 100%; */
-    /* font-size: 3vw; */
     border-radius: 5px;
     padding: 3px 15px;
     margin-left: 1rem;
     text-align: center;
 }
 
+/* adding glow effect to buttons */
 .btn[type=submit]:hover,
 .btn:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -122,12 +106,11 @@ input {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
     border-radius: 10px;
     margin: 1%;
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding: 0.5%;
 }
 
 main {
-    /* display: flex; */
     display: none;
     justify-content: center;
     padding: 3%;
@@ -135,14 +118,12 @@ main {
 }
 
 #main-weather {
-    /* outline: 2px chartreuse solid; */
     flex-basis: 40%;
     margin-right: 2%;
-    /* background-color: rgba(255, 255, 255, 0.2); */
-    background-image: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)  );
+    background-image: radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     border-radius: 8px;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     padding: 12px;
 }
@@ -159,7 +140,6 @@ main {
 
 #date {
     flex-basis: 100%;
-    /* padding-left: 20%; */
     white-space: nowrap;
     color: white;
     text-align: left;
@@ -172,36 +152,27 @@ main {
 
 #details-container {
     flex-basis: 100%;
-    /* padding: 10px 0px; */
     align-items: center;
 }
 
-#humid, #wind {
+#humid,
+#wind {
     flex-basis: 100%;
     font-size: 3vh;
     white-space: nowrap;
 }
 
-/* #wind {
-    flex-basis: 100%;
-    font-size: 3vh;
-    white-space: nowrap;
-} */
-
 #forecast-container {
     flex-basis: 60%;
-    /* outline: 2px chartreuse solid; */
     display: block;
     flex-wrap: wrap;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
 }
 
 .forecast-card {
-    /* outline: 2px white solid; */
     flex-basis: 100%;
-    /* background-color: rgba(75, 75, 75, 0.5); */
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) ,rgba(255, 255, 255, 0.2), transparent);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2), transparent);
     border-radius: 8px;
     display: flex;
     flex: wrap;
@@ -210,17 +181,16 @@ main {
 
 .forecast-top-row {
     display: flex;
-    /* outline: blue solid 2px; */
     flex-basis: 50%;
     align-items: center;
-    padding-left: 12px ;
+    padding-left: 12px;
 }
+
 .forecast-bot-row {
     display: flex;
-    /* outline: green solid 2px; */
     flex-direction: column;
     flex-basis: 50%;
-    margin-left:5%;
+    margin-left: 5%;
     padding: 3% 0%;
     font-size: 2.5vh;
 }
@@ -230,25 +200,31 @@ main {
     text-align: center;
     color: white;
 }
+
 .temp {
     flex-basis: 70%;
     text-align: center;
     font-size: 50px;
     margin-left: 20px;
 }
+
 .icon {
     flex-basis: 33%;
     margin-bottom: 2px;
 }
+
 .humid {
     flex-basis: 33%;
     margin-bottom: 3px;
 }
+
 .wind {
     flex-basis: 34%;
 }
 
-.icon, .humid, .wind {
+.icon,
+.humid,
+.wind {
     font-size: 2.5vh;
 }
 
@@ -260,10 +236,9 @@ main {
     flex-basis: 100%;
 }
 
-
+/* added media queries to add responsiveness to page in terms of spacing, positioning, and sizing */
 @media (max-width: 415px) {
     #history-ticker {
-        /* flex-direction: column; */
         justify-content: center;
         align-items: center;
     }
@@ -287,21 +262,25 @@ main {
     #forecast-container {
         flex-basis: 100%;
     }
-  
+
 }
+
 @media (max-width: 524px) {
     #temp {
         flex-basis: 100%;
         font-size: 70px;
     }
+
     #details-container {
         flex-basis: 100%;
         padding: 10px 0px;
     }
+
     .forecast-bot-row {
         text-align: center;
-}
+    }
+
     .forecast-card {
         flex-direction: column;
-}
+    }
 }
