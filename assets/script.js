@@ -14,7 +14,6 @@ function getApi(city) {
         .then(function (response) {
             // Check if response is ok/status 200-299. If not, alert message prompts user to enter valid city; return stops code.
             if (!response.ok) {
-                console.log('error');
                 alert('Please enter an actual city.')
                 return;
             }
@@ -74,7 +73,6 @@ function getApi(city) {
 
 // User clicks history button; accesses the city name in the history button to run getApi function and display that prior search's weather data.
 historyBar.onclick = function (event) {
-    console.log(event.target);
     getApi(event.target.textContent);
 
     // If user leaves and comes back to page, all weather is gone, but clicing a history button will render all of it to reappear again.
