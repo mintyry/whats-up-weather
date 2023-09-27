@@ -28,7 +28,6 @@ function getApi(city) {
             // Check to see if city already exists in storage//checking for and removing duplicates.
             if (cityArray.includes(data.name)) {
                 let index = cityArray.indexOf(data.name);
-                console.log(index);
                 cityArray.splice(index, 1);
             }
             // If there aren't any duplicates, add city as a search history button to the front of the list of buttons.
@@ -63,6 +62,7 @@ function getApi(city) {
             city.textContent = data.name;
             day.textContent = now;
             day.appendChild(img);
+            // Rounding temperature to not display decimals.
             temp.textContent = Math.round(data.main.temp) + '℉';
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
@@ -124,6 +124,7 @@ function getForecast(lat, lon) {
                 // Traverse the DOM to access and display content to specific parts of five-day forecast.
                 // Did it this way because I formatted the cards much too specifically to simply appendChild.
                 forecastContainer.children[i].children[0].children[0].textContent = forecastOneDate;
+                // Rounding temperature to not display decimals.
                 forecastContainer.children[i].children[0].children[1].textContent = Math.round(forecastOneTemp) + '℉';
                 // Displaying the current city's weather condition icon.
                 iconEl.appendChild(forecastIcon);
