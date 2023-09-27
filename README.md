@@ -26,7 +26,7 @@ When the user visits the What's Up Weather app for the first time, they will be 
 
 ![Page Load is clean with just input box and search button](./assets/images/load.png)
 
-When the user enters a city name, they will be able to view the city's current temperature, humidity level, and wind speed, along with a nifty little icon that resembles current weather conditions. The next five-day forecast also displays the same information.
+When the user enters and searches a city name, they will be able to view the city's current temperature, humidity level, and wind speed, along with a nifty little icon that resembles current weather conditions. The next five-day forecast also displays the same information.
 
 Upon conducting the search, the user will be presented with a newly generated history button that accesses their most recent search. So should they come back and want easy access to a prior search of theirs, one simple click will do the trick and reveal to them the current weather conditions and next five-day forecast of the corresponding city.
 
@@ -40,7 +40,7 @@ However, if a user enters a typo or is just plain bad at following instructions 
 
 ![Alert for invalid city names](./assets/images/checkvalid.png)
 
-Once the user is done conducting their business and leave the page, when they return, their last five searches will be here waiting for them to access with one simple click.
+Once the user is done conducting their business and leaves the page, when they return, their last five searches will be here waiting for them to access with one simple click.
 
 ![Your last five searches will be here waiting for you](./assets/images/wait.png)
 
