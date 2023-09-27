@@ -10,7 +10,7 @@ This app would solve the problem of being ill-prepared for the weather -- whethe
 
 In creating this app, I learned a bit more about how the return statement works.
 I learned that I prefer to build my own CSS as quickly as I can rather than sift through bootstrap documentation.
-More improtantly, I learned how to access third-party APIs.
+More importantly, I learned how to access third-party APIs.
 Although I didn't just learn this -- I got to actually use more array and string methods to manipulate user input and how I want them to display on my page.
 
 I continue to learn how placement really matters. Even when I think one way makes sense, I am still astounded how moving tiny parts in totally different places provide such drastic changes.
