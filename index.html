@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- special google font to be implemented in CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,500;1,400&display=swap"
         rel="stylesheet">
+        <!-- linking CSS stylesheet to HTML -->
     <link rel="stylesheet" href="./assets/styles.css">
+    <!-- Title for the tab/window of the page -->
     <title>What's Up Weather?</title>
 </head>
 
 <body>
+    <!-- header bar holds title of app, text input box, and search button -->
     <header>
         <p class="wuw">What's Up Weather?</p>
         <form>
@@ -20,11 +24,13 @@
             <button class="btn" id="search" type="submit">Search</button>
         </form>
     </header>
+    <!-- container div holds everything -->
     <div class=container>
+        <!-- bar that will hold all buttons of user's prior searches -->
         <section id="history-ticker"></section>
-
+        <!-- main holds all the weather sections -->
         <main>
-
+            <!-- following code structures and displays the current weather -->
             <section id="main-weather">
                 <div id="top-details-container">
                     <p id="city"></p>
@@ -36,9 +42,10 @@
                     <p id="wind"></p>
                 </div>
             </section>
-
+            <!-- following code structures and displays the five-day forecast cards -->
             <section id="forecast-container">
-
+                <!-- each card has a patterned formatting with the "top row" showing date and temp;
+                    "bottom row containing icon, humidity, and wind speed -->
                 <section class="forecast-card" id="card-1">
                     <div class="forecast-top-row">
                         <section class="date"></section>
@@ -99,8 +106,10 @@
 
         </main>
     </div>
+    <!-- linking to dayjs library -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
         integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+        <!-- linking to JavaScript file -->
     <script src="./assets/script.js"></script>
 </body>
 

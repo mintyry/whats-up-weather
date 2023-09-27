@@ -35,7 +35,7 @@ function getApi(city) {
 
         })
         .then(function (data) {
-
+            
             let cityArray = JSON.parse(localStorage.getItem('city')) || [];
             console.log(data);
 
@@ -47,6 +47,8 @@ function getApi(city) {
         
             cityArray.unshift(data.name);
             localStorage.setItem('city', JSON.stringify(cityArray));
+
+            mainSection.setAttribute('style', 'display:flex');
 
             console.log(data);
             let lat = data.coord.lat;
@@ -71,6 +73,8 @@ function getApi(city) {
             temp.textContent = Math.round(data.main.temp) + '℉';
             humid.textContent = `Humidity: ${data.main.humidity}`;
             wind.textContent = `Wind Speed: ${Math.round(data.wind.speed)} mph`;
+
+            
 
             loadHistoryButtons();
 
@@ -191,7 +195,7 @@ function loadHistoryButtons() {
 
 
 
-    for (let i = 0; i < cityArray.length; i++) {
+    for (let i = 0; i < cityArray.length && i < 5; i++) {
         let cityBtn = document.createElement('button');
 
 
@@ -227,8 +231,7 @@ searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
 
-    mainSection.setAttribute('style', 'display:flex');
-    //^bring back when done
+  
 
     let input = document.querySelector('input').value;
 
@@ -247,6 +250,7 @@ searchBtn.addEventListener('click', function (event) {
     // console.log(input);
 
     getApi(input);
+   
 
     console.log('test');
     
