@@ -35,6 +35,19 @@ function getApi(city) {
 
         })
         .then(function (data) {
+
+            let cityArray = JSON.parse(localStorage.getItem('city')) || [];
+            console.log(data);
+
+            if (cityArray.includes(data.name)) {
+                let index = cityArray.indexOf(data.name);
+                console.log(index);
+                cityArray.splice(index, 1);
+            }
+        
+            cityArray.unshift(data.name);
+            localStorage.setItem('city', JSON.stringify(cityArray));
+
             console.log(data);
             let lat = data.coord.lat;
             let long = data.coord.lon;
@@ -78,15 +91,17 @@ function getForecast(lat, lon) {
     fetch(requestUrl)
         .then(function (response) {
             console.log(response);
-            if (!response.ok) {
-                console.log('error');
-                alert('Please enter an actual city.')
-                return;
-            }
+            // if (!response.ok) {
+            //     console.log('error');
+            //     alert('Please enter an actual city.')
+            //     return;
+            // }
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+
+
             let forecastContainer = document.querySelector('#forecast-container');
             let forecastOneDate;
             let forecastOneTemp;
@@ -217,35 +232,25 @@ searchBtn.addEventListener('click', function (event) {
 
     let input = document.querySelector('input').value;
 
-    input = input.toLowerCase();
-    console.log(input);
+    // input = input.toLowerCase();
+    // console.log(input);
 
-    input = input.split(' ');
-    console.log(input);
+    // input = input.split(' ');
+    // console.log(input);
 
-    for (let i = 0; i < input.length; i++) {
-        input[i] = input[i][0].toUpperCase() + input[i].substr(1);
-    }
+    // for (let i = 0; i < input.length; i++) {
+    //     input[i] = input[i][0].toUpperCase() + input[i].substr(1);
+    // }
 
-    input = input.join(' ');
+    // input = input.join(' ');
 
-    console.log(input);
+    // console.log(input);
 
     getApi(input);
 
     console.log('test');
     
-    let cityArray = JSON.parse(localStorage.getItem('city')) || [];
-
-
-    if (cityArray.includes(input)) {
-        let index = cityArray.indexOf(input);
-        console.log(index);
-        cityArray.splice(index, 1);
-    }
-
-    cityArray.unshift(input);
-    localStorage.setItem('city', JSON.stringify(cityArray));
+   
 
     // createHistoryBtn();
     // loadHistoryButtons();
