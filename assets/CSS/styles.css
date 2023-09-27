@@ -12,7 +12,7 @@
 /* displays background image, sets body element to block to display the elements within it how they are */
 body {
     display: block;
-    background-image: url("./images/wuwbg.png");
+    background-image: url("../images/wuwbg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
