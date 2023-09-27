@@ -236,7 +236,7 @@ main {
     flex-basis: 100%;
 }
 
-/* added media queries to add responsiveness to page in terms of spacing, positioning, and sizing */
+/* added media queries to add responsiveness to page in terms of spacing, positioning, and sizing; go into effect at listed widths */
 @media (max-width: 415px) {
     #history-ticker {
         justify-content: center;
