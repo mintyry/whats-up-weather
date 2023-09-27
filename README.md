@@ -2,8 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 I was motivated to use the skills I'd learned recently by putting local storage further into practice as well as accessing server-side APIs for the first time.
 I was also motivated to make this app so people like me could prepare for the best/worst weather ahead of time.
 By checking what the temperature is now, I can decide whether I'm gonna wear a poofy jacket that's twice my body width or a tanktop that hugs me in unflattering ways.
@@ -49,9 +47,12 @@ Once the user is done conducting their business and leave the page, when they re
 
 ## Credits
 
-W3Schools, change placeholder color.
+W3Schools, change placeholder color.  
 https://www.w3schools.com/howto/howto_css_placeholder.asp
 CSS 57-66
 
-Meg M. (TA)/ edX.
+Meg M. (TA)/ edX.  
 API endpoints
+
+## Deployed Link
+Please enjoy the [What's Up Weather](url) app!
